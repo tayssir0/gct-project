@@ -312,6 +312,7 @@ nav ul li a:hover {
   .hero-content h2 {
     font-size: 2rem;
   }
+  
   .product-grid {
     grid-template-columns: 1fr;
   }

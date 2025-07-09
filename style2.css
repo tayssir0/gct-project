@@ -1,0 +1,635 @@
+/* style.css */
+/* Tunisian Color Scheme */
+:root {
+  --primary-blue: #0066cc;       /* Bleu GCT */
+  --secondary-blue: #004080;     /* Bleu foncé */
+  --accent-red: #cc0033;         /* Rouge */
+  --light-gray: #f5f5f5;         /* Gris clair */
+  --dark-gray: #333333;          /* Gris foncé */
+  --gold: #d4af37;               /* Or */
+  --white: #ffffff;
+  --black: #000000;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--dark-gray);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Styles */
+.sales-header {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-bar {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+.sales-contact {
+  display: inline-block;
+}
+
+.sales-contact span {
+  margin-right: 20px;
+}
+
+.sales-contact i {
+  margin-right: 5px;
+}
+
+.sales-cta {
+  float: right;
+}
+
+.cta-button-small {
+  background-color: var(--accent-red);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button-small:hover {
+  background-color: #b3002d;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.logo span {
+  color: var(--primary-blue);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 600;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--primary-blue);
+}
+
+nav a.active {
+  color: var(--primary-blue);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-blue);
+}
+
+/* Products Hero Section */
+.products-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/chemical-plant.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 100px 0;
+}
+
+.products-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.products-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+  padding: 12px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover {
+  color: var(--primary-blue);
+}
+
+.tab-btn.active {
+  color: var(--primary-blue);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-blue);
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  margin: 60px 0 40px;
+  position: relative;
+  font-size: 2rem;
+  color: var(--secondary-blue);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin: 15px auto 0;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--gold);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  padding: 20px;
+  background-color: var(--light-gray);
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-details h3 {
+  margin-bottom: 15px;
+  color: var(--secondary-blue);
+}
+
+.product-specs {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.product-specs li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.product-specs i {
+  color: var(--primary-blue);
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.price-range {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-red);
+  margin: 15px 0;
+}
+
+.inquiry-button {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.inquiry-button:hover {
+  background-color: var(--secondary-blue);
+}
+
+.inquiry-button i {
+  margin-right: 8px;
+}
+
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 8px;
+  background-color: var(--light-gray);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card i {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+  color: var(--secondary-blue);
+}
+
+/* Footer Styles */
+.sales-footer {
+  background-color: var(--secondary-blue);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--gold);
+}
+
+.footer-col address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--gold);
+}
+
+.footer-col i {
+  margin-right: 8px;
+  width: 20px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-social a {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-left: 15px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--gold);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .top-bar {
+    text-align: center;
+  }
+  
+  .sales-contact {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .sales-cta {
+    float: none;
+    display: inline-block;
+  }
+  
+  .main-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  .products-hero {
+    padding: 60px 0;
+  }
+  
+  .products-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-social {
+    margin-top: 15px;
+  }
+}
+/* Contact Form with Tunisian-inspired Colors */
+:root {
+  --primary-blue: #005b8c;       /* Deep Mediterranean blue */
+  --secondary-blue: #003d5b;     /* Darker blue */
+  --accent-orange: #e67e22;      /* Warm orange (like Tunisian sun) */
+  --light-sand: #f5f0e6;         /* Light sand color */
+  --dark-sand: #d8c9b3;          /* Darker sand for borders */
+  --white: #ffffff;
+  --text-dark: #2c3e50;
+  --success-green: #27ae60;      /* For validation */
+  --error-red: #e74c3c;          /* For validation */
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: var(--light-sand);
+  padding: 5rem 0;
+  position: relative;
+}
+
+.contact-section .section-title {
+  color: var(--primary-blue);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.contact-section .section-title::after {
+  background-color: var(--accent-orange);
+  height: 3px;
+}
+
+/* Form Container */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--dark-sand);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--secondary-blue);
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--dark-sand);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(245, 240, 230, 0.3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 91, 140, 0.2);
+  background-color: var(--white);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--secondary-blue);
+}
+
+.submit-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Validation States */
+input:invalid,
+textarea:invalid {
+  border-color: var(--error-red);
+}
+
+input:valid,
+textarea:valid {
+  border-color: var(--success-green);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7rem 0.9rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.submit-btn { animation-delay: 0.4s; }

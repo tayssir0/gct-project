@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCT Gabès - Nos Produits Chimiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header class="sales-header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="sales-contact">
+                    <span><i class="fas fa-phone"></i> +216 75 123 456</span>
+                    <span><i class="fas fa-envelope"></i> contact@gct-gabes.com.tn</span>
+                </div>
+                <div class="sales-cta">
+                    <a href="#devis" class="cta-button-small">Demander un devis <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-nav container">
+            <div class="logo">
+                <img src="Groupe_chimique_tunisien-removebg-preview.png" alt="GCT Gabès" loading="lazy">
+                <h1>GCT <span>Gabès</span></h1>
+            </div>
+            <button class="mobile-menu-button" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="produits.html" class="active">Produits</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="products-main">
+        <section class="products-hero">
+            <div class="container">
+                <h1>Nos Produits Chimiques Industriels</h1>
+                <p>Des solutions de qualité pour divers secteurs industriels</p>
+            </div>
+        </section>
+
+        <section class="product-categories">
+            <div class="container">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="acides" aria-controls="acides">Acides</button>
+                    <button class="tab-btn" data-category="engrais" aria-controls="engrais">Engrais</button>
+                    <button class="tab-btn" data-category="sels" aria-controls="sels">Sels Chimiques</button>
+                </div>
+
+                <div class="category-content active" id="acides" role="tabpanel" aria-labelledby="acides-tab">
+                    <h2 class="section-title">Nos Acides</h2>
+                    <div class="product-grid">
+                        <div class="product-card" data-aos="fade-up">
+                            <div class="product-badge">Best-seller</div>
+                            <img src="images/acide-phosphorique.png" alt="Acide Phosphorique" loading="lazy">
+                            <div class="product-details">
+                                <h3>Acide Phosphorique 54%</h3>
+                                <ul class="product-specs">
+                                    <li><i class="fas fa-flask"></i> Pureté: 54% P₂O₅</li>
+                                    <li><i class="fas fa-industry"></i> Usage: Industriel/Alimentaire</li>
+                                    <li><i class="fas fa-drum"></i> Format: Fûts ou Vrac</li>
+                                </ul>
+                                <div class="price-range">Dès 320€/tonne</div>
+                                <a href="#contact" class="inquiry-button"><i class="fas fa-envelope"></i> Plus d'infos</a>
+                            </div>
+                        </div>
+                        <!-- More acid products here -->
+                    </div>
+                </div>
+
+                <div class="category-content" id="engrais" role="tabpanel" aria-labelledby="engrais-tab" hidden>
+                    <h2 class="section-title">Nos Engrais</h2>
+                    <div class="product-grid">
+                        <div class="product-card" data-aos="fade-up">
+                            <img src="images/engrais-dap.png" alt="Engrais DAP" loading="lazy">
+                            <div class="product-details">
+                                <h3>Engrais DAP 18-46-0</h3>
+                                <ul class="product-specs">
+                                    <li><i class="fas fa-seedling"></i> Composition: 18% N, 46% P₂O₅</li>
+                                    <li><i class="fas fa-pallet"></i> Conditionnement: Sacs 50kg</li>
+                                    <li><i class="fas fa-ship"></i> Export: Conteneurs 25T</li>
+                                </ul>
+                                <div class="price-range">Dès 250€/tonne</div>
+                                <a href="#contact" class="inquiry-button"><i class="fas fa-shopping-cart"></i> Commander</a>
+                            </div>
+                        </div>
+                        <!-- More fertilizer products here -->
+                    </div>
+                </div>
+
+                <div class="category-content" id="sels" role="tabpanel" aria-labelledby="sels-tab" hidden>
+                    <h2 class="section-title">Sels Chimiques</h2>
+                    <div class="product-grid">
+                        <!-- Salt products would go here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-features">
+            <div class="container">
+                <h2 class="section-title">Pourquoi choisir nos produits?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-award"></i>
+                        <h3>Qualité Certifiée</h3>
+                        <p>Normes ISO et contrôles qualité stricts</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-truck-fast"></i>
+                        <h3>Livraison Rapide</h3>
+                        <p>Réseau logistique optimisé</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-headset"></i>
+                        <h3>Support Technique</h3>
+                        <p>Équipe d'experts disponible</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contactez-nous</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="sales-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GCT Gabès</h4>
+                    <address>
+                        Zone Industrielle, 6000 Gabès<br>
+                        Tunisie<br><br>
+                        <strong>Tél:</strong> +216 75 123 456<br>
+                        <strong>Email:</strong> info@gct-gabes.com.tn
+                    </address>
+                </div>
+                <div class="footer-col">
+                    <h4>Produits</h4>
+                    <ul>
+                        <li><a href="#acides">Acides</a></li>
+                        <li><a href="#engrais">Engrais</a></li>
+                        <li><a href="#sels">Sels Chimiques</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="catalogue.pdf" download><i class="fas fa-download"></i> Catalogue</a></li>
+                        <li><a href="fiches-techniques.pdf" download><i class="fas fa-file-pdf"></i> Fiches Techniques</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> GCT Gabès - Tous droits réservés</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+</body>
+</html>
