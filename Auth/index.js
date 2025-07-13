@@ -1,17 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import cors from "cors";                      // استيراد cors
+import cors from "cors";
 import userRoutes from "../Auth/route/user.route.js";
 
 dotenv.config();
 
 const app = express();
 
-app.use(cors());                             // نضيف cors middleware للسماح لكل الـ origins
-
-// Middleware pour parser le JSON
-app.use(express.json());
+app.use(cors()); // ✅ للسماح بالاتصالات من أي origin
+app.use(express.json()); // ✅ لتحليل البيانات بصيغة JSON
 
 // Routes
 app.use("/api/user", userRoutes);
@@ -19,15 +17,18 @@ app.use("/api/user", userRoutes);
 const PORT = process.env.PORT || 3000;
 const MongoDB = process.env.MONGO_URI;
 
-// Connecter à MongoDB puis démarrer le serveur
+// ✅ نربط بقاعدة البيانات ونعرض اسمها
 mongoose.connect(MongoDB)
   .then(() => {
-    console.log("mongoDB is connected");
+    console.log("✅ mongoDB is connected");
+
+    const dbName = mongoose.connection.name;
+    console.log("📦 Connected to database:", dbName);
 
     app.listen(PORT, () => {
-      console.log(`server is running on port ${PORT}`);
+      console.log(`🚀 Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error("Failed to connect to MongoDB:", err);
+    console.error("❌ Failed to connect to MongoDB:", err);
   });
