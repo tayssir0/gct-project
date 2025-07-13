@@ -1,11 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from "cors";                      // استيراد cors
 import userRoutes from "../Auth/route/user.route.js";
 
 dotenv.config();
 
 const app = express();
+
+app.use(cors());                             // نضيف cors middleware للسماح لكل الـ origins
 
 // Middleware pour parser le JSON
 app.use(express.json());
