@@ -8,8 +8,8 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors()); // ✅ للسماح بالاتصالات من أي origin
-app.use(express.json()); // ✅ لتحليل البيانات بصيغة JSON
+app.use(cors()); 
+app.use(express.json()); 
 
 // Routes
 app.use("/api/user", userRoutes);
@@ -17,7 +17,7 @@ app.use("/api/user", userRoutes);
 const PORT = process.env.PORT || 3000;
 const MongoDB = process.env.MONGO_URI;
 
-// ✅ نربط بقاعدة البيانات ونعرض اسمها
+// bd
 mongoose.connect(MongoDB)
   .then(() => {
     console.log("✅ mongoDB is connected");
