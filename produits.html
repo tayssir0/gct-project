@@ -189,7 +189,53 @@
             </div>
         </div>
     </footer>
-   <script src="produits.js"></script>
+   <script>
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: form.elements["name"].value,
+      email: form.elements["email"].value,
+      password: form.elements["password"].value,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/user/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      const successMsg = document.createElement("p");
+      successMsg.style.padding = "10px";
+      successMsg.style.marginTop = "10px";
+      successMsg.style.borderRadius = "5px";
+      successMsg.style.fontWeight = "bold";
+      successMsg.style.textAlign = "center";
+
+      if (result.success) {
+        successMsg.style.color = "#155724";
+        successMsg.style.backgroundColor = "#d4edda";
+        successMsg.textContent = result.message;
+        form.reset();
+      } else {
+        successMsg.style.color = "#721c24";
+        successMsg.style.backgroundColor = "#f8d7da";
+        successMsg.textContent = result.message || "Erreur lors de l'inscription";
+      }
+
+      form.appendChild(successMsg);
+      setTimeout(() => successMsg.remove(), 5000);
+    } catch (error) {
+      console.error("Erreur:", error);
+      alert("Erreur serveur, réessaye plus tard.");
+    }
+  });
+</script>
 
 </body>
 </html>
