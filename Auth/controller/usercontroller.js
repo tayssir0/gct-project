@@ -4,51 +4,69 @@ import bcrypt from "bcryptjs";
 export const registerController = async (req, res) => {
     const { name, email, password } = req.body;
 
+    // Validation
+    if (!name || !email || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields are required",
+            fieldErrors: {
+                name: !name ? "Name is required" : null,
+                email: !email ? "Email is required" : null,
+                password: !password ? "Password is required" : null
+            }
+        });
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid email format"
+        });
+    }
+
     try {
-        // Vérifie si tous les champs sont fournis
-        if (!name || !email || !password) {
-            return res.status(400).json({
-                message: "All fields are required"
+        // Check existing user
+        const existingUser = await UserModel.findOne({ email });
+        if (existingUser) {
+            return res.status(409).json({  // 409 Conflict
+                success: false,
+                message: "User already exists"
             });
         }
 
-        // Vérifie si l'utilisateur existe déjà
-        const user = await UserModel.findOne({ email });
-        if (user) {
-            return res.status(400).json({
-                message: "User already exists",
-                error: true,
-                success: false
-            });
-        }
+        // Password hashing
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Hash du mot de passe
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Création du payload (objet utilisateur à enregistrer)
-        const payload = {
+        // Create new user
+        const newUser = await UserModel.create({
             name,
             email,
             password: hashedPassword
+        });
+
+        // Omit password in response
+        const userResponse = {
+            _id: newUser._id,
+            name: newUser.name,
+            email: newUser.email,
+            createdAt: newUser.createdAt
         };
 
-        // Création de l'utilisateur
-        const newUser = new UserModel(payload);
-        await newUser.save();
-
-        // Réponse de succès
-        return res.status(200).json({
+        return res.status(201).json({
+            success: true,
             message: "User registered successfully",
-            error: false,
-            success: true
+            data: userResponse
         });
 
     } catch (error) {
-        // Gestion d'erreur serveur
+        console.error("Registration Error:", error);
         return res.status(500).json({
-            message: "Register error",
-            error: true,
-            success: false
+            success: false,
+            message: "Internal server error",
+            error: error.message
         });
     }
 };

@@ -1,23 +1,25 @@
 {
-  "name": "auth",
+  "name": "gct-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "Auth/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon Auth/index.js",
+    "dev": "node Auth/index.js",
+    "install-deps": "npm install bcryptjs cors validator"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "description": "",
   "dependencies": {
-    "bcrypt": "^6.0.0",
-    "bcryptjs": "^3.0.2",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "mongoose": "^8.16.3",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }
